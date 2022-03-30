@@ -30,7 +30,7 @@
  */
 
 //function that returns a digit from a number with the right most digit being digit 1
-int retrieve_digit_from_right_side (int number, int digit_wanted) {
+int retrieve_digit_from_right_side (long long number, int digit_wanted) {
     while (digit_wanted){
         int digit = number % 10;
         if (digit_wanted == 1) {
@@ -55,21 +55,23 @@ int integer_match(int check_digit, int calc_check_digit) {
     if (check_digit == calc_check_digit) {
         return 0;
     }
-    else if (check_digit != calc_check_digit) {
+    else {
         return 1;
     }
 }
 
 int main (void) {
-    int upc = 0;
+    //int upc = 0; // int is too small!!!
+    long long upc = 0;
 
     printf("Insert a 12 digit UPC: ");
-    scanf("%d", &upc);
+    scanf("%lld", &upc); //i need to tell the scanner to interpret it as a lld or long long integer
 
     int d1=retrieve_digit_from_right_side(upc, 12), d2=retrieve_digit_from_right_side(upc, 11), d3=retrieve_digit_from_right_side(upc, 10), d4=retrieve_digit_from_right_side(upc, 9), d5=retrieve_digit_from_right_side(upc, 8), d6=retrieve_digit_from_right_side(upc, 7), d7=retrieve_digit_from_right_side(upc, 6), d8=retrieve_digit_from_right_side(upc, 5), d9=retrieve_digit_from_right_side(upc, 4), d10=retrieve_digit_from_right_side(upc, 3), d11=retrieve_digit_from_right_side(upc, 2), dcheck=retrieve_digit_from_right_side(upc, 1);
 
+    /* this is a printf functino to check if the retrieve digit function is working well */
     printf("%d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d \n", d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, dcheck);
-    
+
     int eleven_digit_sequence[11] = {d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11};
     int eleven_sequence_counter = 11;
     
@@ -123,9 +125,9 @@ int main (void) {
     int check_digit_result = 10 - (even_and_triple_odd_number_sum % 10);
 
     if (integer_match(dcheck, check_digit_result)) {
-        printf("The UPC %d has check digit %d.\nThis UPC is valid.\nBecause the check digit calculation results in the same check digit: %d", upc, dcheck, check_digit_result);
+        printf("The UPC %lld has check digit %d.\nThis UPC is valid.\nBecause the check digit calculation results in the same check digit: %d", upc, dcheck, check_digit_result);
     } else {
-        printf("The UPC %d has check digit %d.\nThis UPC is NOT valid.\nBecause the check digit calculation results in a different check digit: %d", upc, dcheck, check_digit_result);
+        printf("The UPC %lld has check digit %d.\nThis UPC is NOT valid.\nBecause the check digit calculation results in a different check digit: %d", upc, dcheck, check_digit_result);
     }
     return 0;
 }
