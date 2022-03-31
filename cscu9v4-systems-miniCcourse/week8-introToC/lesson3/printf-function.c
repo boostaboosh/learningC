@@ -11,4 +11,6 @@ int main (void) {
     y = 5527.0f;
 
     printf("i = %d, j = %d, x = %f, y = %f", i, j, x, y);
+
+    return 0;
 }
