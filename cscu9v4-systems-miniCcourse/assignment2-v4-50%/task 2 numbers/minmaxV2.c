@@ -5,7 +5,7 @@ int main (void){
     int number_of_ints, counter;
     double min = __DBL_MAX__, max = __DBL_MIN__, avg, sum;
 
-    printf("How many numbers? \t");
+    printf("Insert the number \"n\" of floating point numbers to calculate the minimum, maximum, and average of:\t");
     scanf("%d", &number_of_ints);
 
     for (counter = 0; counter < number_of_ints; counter++){
