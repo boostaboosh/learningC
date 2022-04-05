@@ -28,8 +28,9 @@ int main (void){
     int nums[10] = {1,2,3,4,50,6,7,8,9,10};
 
     //prints the array of 10 integers
+    printf("array of positive integers:\n");
     for (int j = 0; j < 10; j++){
-        printf("number %d:\t%d\n", (j+1), nums[j]);
+        printf("\tn%d = %d ;", (j+1), nums[j]);
     }
 
     //calls the maxptr() passing the array as parameter
@@ -37,11 +38,12 @@ int main (void){
     max_p = maxptr(nums);
 
     //print the returned pointer
-    printf("Printing the pointer:\t%p\n", max_p);
+    printf("\nPrinting the pointer:\t%p", max_p);
 
     //prints the array after the execution of maxptr()
+    printf("\nthe same array after execution of maxptr():\n");
     for (int j = 0; j < 10; j++){
-        printf("number %d:\t%d\n", (j+1), nums[j]);
+        printf("\tn%d = %d ;", (j+1), nums[j]);
     }
 
     return 0;
