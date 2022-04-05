@@ -13,7 +13,7 @@ int* maxptr(int a[]){
         //if this element is bigger than the previous biggest element, make this the biggest element.
         if (a[i] > max){
             max = a[i];
-            //storing the address of the maximum element of the array inn the pointer
+            //storing the address of the maximum element of the array in the pointer
             max_pointer = &a[i];
         }
     }
@@ -34,8 +34,7 @@ int main (void){
     }
 
     //calls the maxptr() passing the array as parameter
-    int* max_p;
-    max_p = maxptr(nums);
+    int* max_p = maxptr(nums);
 
     //print the returned pointer
     printf("\nPrinting the pointer:\t%p", max_p);
