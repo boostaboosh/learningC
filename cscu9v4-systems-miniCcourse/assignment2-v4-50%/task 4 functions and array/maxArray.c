@@ -6,10 +6,10 @@ int* maxptr(int a[]){
     //a variable to hold the max value
     int max = a[0];
     //declaring a pointer (variable that stores an address rather than a value) that will point to the maximum element of the array
-    int* max_pointer;
+    int* max_pointer = &a[0]; //Pointing to first element in array which we set as max value. If this isn't done then an array of length 1 would not have its max value pointed to by max pointer and the function would not operate as desired.
     //a for loop to cycle through the elements of the array
     int i;
-    for (i=0; i<10; i++){
+    for (i=1; i<10; i++){ //index i can start at 1 because element at index 0 is already set to max value!
         //if this element is bigger than the previous biggest element, make this the biggest element.
         if (a[i] > max){
             max = a[i];
